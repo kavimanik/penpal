@@ -1,13 +1,11 @@
-import cookieParser from 'cookie-parser'
-import 'dotenv/config.js'
-import express from 'express'
-import { dirname, join } from 'path'
-import { fileURLToPath } from 'url'
-import apiRouter from './routes/api.js'
+const cookieParser = require('cookie-parser')
+const express = require('express')
+const { join } = require('path')
+const apiRouter = require('./routes/api')
+
+require('dotenv/config')
 
 const app = express()
-
-const __dirname = dirname(fileURLToPath(import.meta.url))
 
 app.use(cookieParser())
 app.use(express.json())
