@@ -15,9 +15,10 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.static(join(__dirname, 'public')))
 
 app.get('/', (_, res) => res.sendFile(join(__dirname, 'views', 'index.html')))
+app.get('/letterDashboardTemplate', (_, res) => res.sendFile(join(__dirname, 'views', 'letterDashboardTemplate.html')))
 
 app.use('/api.js', apiRouter)
 
-app.listen(3001, () => { // Temp changed port to just be a static number for testing purposes, process.env.PORT was returning undefined
-  console.log(`Server running on port 3001`)
+app.listen(process.env.PORT, () => {
+  console.log(`Server running on port ${process.env.PORT}`)
 })
