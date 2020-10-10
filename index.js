@@ -3,7 +3,7 @@ import 'dotenv/config.js'
 import express from 'express'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
-import apiRouter from './routes/api'
+import apiRouter from './routes/api.js'
 
 const app = express()
 
@@ -16,8 +16,8 @@ app.use(express.static(join(__dirname, 'public')))
 
 app.get('/', (_, res) => res.sendFile(join(__dirname, 'views', 'index.html')))
 
-app.use('/api', apiRouter)
+app.use('/api.js', apiRouter)
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server running on port ${process.env.PORT}`)
+app.listen(3001, () => { // Temp changed port to just be a static number for testing purposes, process.env.PORT was returning undefined
+  console.log(`Server running on port 3001`)
 })
