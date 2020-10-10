@@ -1673,6 +1673,7 @@ slice-ansi@^2.1.0:
     is-fullwidth-code-point "^2.0.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 sliced@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/sliced/-/sliced-1.0.1.tgz#0b3a662b5d04c3177b1926bea82b03f837a2ef41"
@@ -1685,10 +1686,15 @@ sparse-bitfield@^3.0.3:
   dependencies:
     memory-pager "^1.0.2"
 =======
+=======
+>>>>>>> aa5887a4496dfa00cd4b2de1154e6cd0ed613058
 source-map@^0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
+<<<<<<< HEAD
+>>>>>>> aa5887a4496dfa00cd4b2de1154e6cd0ed613058
+=======
 >>>>>>> aa5887a4496dfa00cd4b2de1154e6cd0ed613058
 
 sprintf-js@~1.0.2:

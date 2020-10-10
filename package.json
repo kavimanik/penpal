@@ -14,11 +14,7 @@
     "cookie-parser": "^1.4.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-<<<<<<< HEAD
-    "mongoose": "^5.10.9"
-=======
     "express-handlebars": "^5.1.0"
->>>>>>> aa5887a4496dfa00cd4b2de1154e6cd0ed613058
   },
   "devDependencies": {
     "eslint": "^7.11.0",
