@@ -1,0 +1,10 @@
+{
+  "name": "penpal",
+  "version": "1.0.0",
+  "main": "server/index.js",
+  "repository": "https://github.com/kavimanik/penpal.git",
+  "license": "MIT",
+  "scripts": {
+    "start": ""
+  }
+}
