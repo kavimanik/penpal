@@ -1,0 +1,11 @@
+{
+  "terminal.integrated.rendererType": "dom",
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true
+  },
+  "todo-tree.highlights.enabled": false,
+  "git.autofetch": true
+}
