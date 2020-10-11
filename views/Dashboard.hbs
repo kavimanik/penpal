@@ -1,17 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="global.css" />
+{{> header }}
 
 <head>
   <title>Dashboard</title>
 </head>
 
-<body>
-  <label for="bar">Letter progress: </label>
-  <progress id="bar" value="25" max="100">25%</progress>
-</body>
+<div class="container">
+  <div class="bg-grey-lighter min-h-screen flex flex-col">
+    <div class="container max-w-20xl max-h-20xl mx-auto flex-1 flex flex-col items-center justify-center px-2">
+      <div class="bg-white px-8 py-8 rounded shadow-md text-black w-full">
+        {{> conversation }}
+      </div>
+    </div>
+  </div>
+</div>
+
 
 </html>
