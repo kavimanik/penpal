@@ -29,7 +29,7 @@ app.engine('.hbs', hbs.engine)
 app.set('view engine', '.hbs')
 app.set('views', join(__dirname, 'views'))
 
-app.get('/', (req, res) => res.render('index.hbs'))
+app.get('/', (req, res) => res.render('index.hbs', ))
 app.get('/login', (req, res) => res.render('login.hbs'))
 app.get('/signup', (req, res) => res.render('signup.hbs'))
 app.get('/writer', (req, res) => res.render('writer.hbs'))
