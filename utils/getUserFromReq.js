@@ -4,7 +4,13 @@ const User = require('../models/User')
 module.exports.getUserFromReq = async (req) => {
   const refreshToken = req.cookies.refresh_token || req.headers.refresh_token
 
-  if (!refreshToken || !jwt.verify(refreshToken)) {
+  if (!refreshToken) {
+    return undefined
+  }
+
+  try {
+    jwt.verify(refreshToken, process.env.JWT_SECRET)
+  } catch {
     return undefined
   }
 
@@ -13,7 +19,12 @@ module.exports.getUserFromReq = async (req) => {
     return undefined
   }
 
-  const payload = jwt.verify(authorization.split('Bearer ')[1])
+  let accessTokenayload
+  try {
+    accessTokenayload = jwt.verify(authorization.split('Bearer ')[1], process.env.JWT_SECRET)
+  } catch {
+    accessTokenayload = undefined
+  }
 
   if (!payload) {
     return undefined
