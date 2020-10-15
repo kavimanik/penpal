@@ -30,7 +30,27 @@ signupRouter.post('/', [body('username').isString(), body('password').isString()
   const user = new User({ username, password: hash })
   await user.save()
 
-  return res.json(user)
+  const refreshToken = jwt.create(
+    {
+      type: 'user',
+      userId: user.id
+    },
+    process.env.JWT_SECRET,
+    { expiresIn: '1 day' }
+  )
+
+  const accessToken = jwt.create(
+    {
+      type: 'user',
+      userId: user.id
+    },
+    process.env.JWT_SECRET,
+    { expiresIn: '1 day' }
+  )
+
+  res.cookie('refresh_token', refreshToken), { httpOnly: true }
+
+  return res.json({ accessToken })
 })
 
 module.exports = signupRouter

@@ -1,13 +1,45 @@
 const { Router } = require('express')
+const { getUserFromReq } = require('../utils/getUserFromReq')
 
 const viewsRouter = Router()
 
-viewsRouter.get('/', (req, res) => {
-  return res.render('index.hbs', { helpers: { test: '123' } })
+viewsRouter.get('/', async (req, res) => {
+  const user = await getUserFromReq(req)
+  return res.render('index.hbs', { helpers: { user } })
 })
-viewsRouter.get('/login', (req, res) => res.render('login.hbs'))
-viewsRouter.get('/signup', (req, res) => res.render('signup.hbs'))
-viewsRouter.get('/writer', (req, res) => res.render('writer.hbs'))
-viewsRouter.get('/dashboard', (req, res) => res.render('dashboard.hbs'))
+
+viewsRouter.get('/login', async (req, res) => {
+  const user = await getUserFromReq(req)
+  if (user) {
+    return res.redirect('/dashboard')
+  }
+  return res.render('login.hbs')
+})
+
+viewsRouter.get('/signup', async (req, res) => {
+  const user = await getUserFromReq(req)
+  if (user) {
+    return res.redirect('/dashboard')
+  }
+  return res.render('signup.hbs')
+})
+
+viewsRouter.get('/writer', async (req, res) => {
+  const user = await getUserFromReq(req)
+  if (!user) {
+    res.status(404)
+    return res.redirect('/login')
+  }
+  return res.render('writer.hbs', { helpers: { user } })
+})
+
+viewsRouter.get('/dashboard', async (req, res) => {
+  const user = await getUserFromReq(req)
+  if (!user) {
+    res.status(404)
+    return res.redirect('/login')
+  }
+  return res.render('dashboard.hbs', { helpers: { user } })
+})
 
 module.exports = viewsRouter
