@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node .",
     "build": "postcss public/global.css -o build/styles.css",
-    "dev": "NODE_ENV=development nodemon . -e js,json,html,css"
+    "dev": "nodemon . -e js,json,html,css,hbs"
   },
   "dependencies": {
     "@google-cloud/pubsub": "^2.5.0",

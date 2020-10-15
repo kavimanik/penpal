@@ -6,3 +6,7 @@
   font-named-instance: 'Regular';
   src: url('https://rsms.me/inter/inter.css');
 }
+
+.highlight {
+  @apply text-white;
+}

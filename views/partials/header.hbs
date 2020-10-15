@@ -5,6 +5,7 @@
 <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="global.css" />
 
+
 <body class="bg-gray-400 font-sans leading-normal tracking-normal">
 
   <nav class="flex items-center justify-between flex-wrap bg-gray-800 p-6 fixed w-full z-10 top-0">
@@ -14,23 +15,47 @@
       </a>
     </div>
 
-    <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
-      <ul class="list-reset lg:flex justify-end flex-1 items-center">
+    <div class=" w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
+      <ul class=" list-reset lg:flex justify-end flex-1 items-center">
         {{!-- <li class="mr-3">
           <a class="inline-block py-2 px-4 text-white no-underline" href="/signup">Sign Up</a>
         </li> --}}
         <li class="mr-3">
-          <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+          <a id="signup"
+            class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
             href="/signup">Sign Up</a>
         </li>
         <li class="mr-3">
-          <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+          <a id="dashboard"
+            class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
             href="/dashboard">Dashboard</a>
         </li>
         <li class="mr-3">
-          <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+          <a id="login"
+            class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
             href="/login">Login</a>
         </li>
       </ul>
     </div>
   </nav>
+
+
+  <script type="text/javascript">
+    switch (window.location.pathname) {
+      case "/signup":
+        $('#dashboard').removeClass('font-bold')
+        $('#login').removeClass('font-bold')
+        $('#signup').addClass('font-bold')
+        break;
+      case "/dashboard":
+        $('#login').removeClass('font-bold')
+        $('#signup').removeClass('font-bold')
+        $('#dashboard').addClass('font-bold')
+        break;
+      case "/login":
+        $('#signup').removeClass('font-bold')
+        $('#dashboard').removeClass('font-bold')
+        $('#login').addClass('font-bold')
+        break;
+    }
+  </script>
